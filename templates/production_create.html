@@ -1,0 +1,41 @@
+{% extends "base_dashboard.html" %}
+
+{% block title %}Add Product{% endblock %}
+
+{% block content %}
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h1>Add Product</h1>
+    </div>
+    <div class="panel-body">
+        <form method="POST" action="">
+        {% csrf_token %}
+            <div class="form-group">
+                <label for="order_id" class="form-label"> Order ID: </label>
+                <input type="text" id="order_id" name="order_id" value="{{ form.order_id.value |default_if_none:'' }}"> <br>
+            </div>
+
+            <div class="form-group">
+                <label for="order_release_date" class="form-label"> Order Release Date: </label>
+                <input type="text" id="order_release_date" name="order_release_date" value="{{ form.order_release_date.value |default_if_none:'' }}"><br>
+            </div>
+
+            <div class="form-group">
+                <label for="material_id" class="form-label"> Material ID: </label>
+                <input type="text" id="material_id" name="material_id" value="{{ form.material_id.value |default_if_none:''}}"><br>
+            </div>
+
+            <div class="form-group">
+                <label for="order_quantity" class="form-label"> Order Quantity: </label>
+                <input type="text" id="order_quantity" name="order_quantity" value="{{ form.order_quantity.value |default_if_none:''}}"><br>
+            </div>
+
+            <input type="button" value="Clear" id="resetBtn" onClick="this.form.reset()" />
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+{% endblock %}

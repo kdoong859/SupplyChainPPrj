@@ -1,0 +1,36 @@
+{% extends 'base_dashboard.html' %}
+
+{% block title %}Labor List View{% endblock %}
+
+{% block content%}
+
+<a style="float: right" href="{% url 'create_inventory' %}"><button>Add Inventory</button> </a>
+
+<table class="table">
+    <th>Inventory Difference</th>
+    <th>Inventory Excess Type Usual</th>
+    <th>Inventory Excess Type Recommended</th>
+    <th>Inventory Carry Cost</th>
+    <th>Inventory Hold Cost</th>
+    <th>Unit Cost</th>
+    <th>Extra Cost</th>
+    <br>
+
+    <th>Edit</th>
+
+    {% for inv in invent %}
+        <tr>
+            <td>{{inv.inventory_diff}}</td>
+            <td>{{inv.inventory_excess_type_usual}}</td>
+            <td>{{inv.inventory_excess_type_rec}}</td>
+            <td>{{inv.inventory_carry_cost}}</td>
+            <td>{{inv.inventory_hold_cost}}</td>
+            <td>{{inv.unit_cost}}</td>
+            <td>{{inv.extra_cost}}</td>
+
+            <td><a href="{% url 'edit_inventory' inv.id %}">Edit</a></td>
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

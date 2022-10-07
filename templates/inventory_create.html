@@ -1,0 +1,64 @@
+{% extends "base_dashboard.html" %}
+
+{% block title %}Add Inventory{% endblock %}
+
+
+
+{% block content %}
+<div class="panel panel-primary">
+
+    <div class="panel-heading">
+        <h1>Add Inventory</h1>
+    </div>
+
+    <div class="panel-body">
+        <form method="POST" action="">
+        {% csrf_token %}
+            <div class="form-group">
+                <label for="inventory_diff" class="form-label"> Inventory Difference: </label>
+                <input type="text" id="inventory_diff" name="inventory_diff" value="{{ form.inventory_diff.value |default_if_none:'' }}"> <br>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="inventory_excess_type_usual" class="form-label"> Inventory Excess Type Usual: </label>
+                <input type="text" id="inventory_excess_type_usual" name="inventory_excess_type_usual" value="{{ form.inventory_excess_type_usual.value |default_if_none:'' }}"><br>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="inventory_excess_type_rec" class="form-label"> Inventory Excess Type Recommended: </label>
+                <input type="text" id="inventory_excess_type_rec" name="inventory_excess_type_rec" value="{{ form.inventory_excess_type_rec.value |default_if_none:''}}"><br>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="inventory_carry_cost" class="form-label"> Inventory Carry Cost: </label>
+                <input type="text" id="inventory_carry_cost" name="inventory_carry_cost" value="{{ form.inventory_carry_cost.value |default_if_none:''}}"><br>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="inventory_hold_cost" class="form-label"> Inventory Hold Cost: </label>
+                <input type="text" id="inventory_hold_cost" name="inventory_hold_cost" value="{{ form.inventory_hold_cost.value |default_if_none:''}}"><br>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="unit_cost" class="form-label"> Unit Cost: </label>
+                <input type="text" id="unit_cost" name="unit_cost" value="{{ form.unit_cost.value |default_if_none:''}}"><br>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="extra_cost" class="form-label"> Extra Cost: </label>
+                <input type="text" id="extra_cost" name="extra_cost" value="{{ form.extra_cost.value |default_if_none:''}}"><br>
+            </div>
+            <br>
+            <input type="button" value="Clear" id="resetBtn" onClick="this.form.reset()" />
+            <br>
+            <br>
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+
+        </form>
+    </div>
+
+</div>
+{% endblock content %}
+

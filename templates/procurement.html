@@ -1,0 +1,31 @@
+{% extends 'base_dashboard.html' %}
+
+{% block content%}
+<a style="float: right" href="{% url 'create_procurement' %}"><button>Add Procurement</button> </a>
+
+<table class="table">
+    <th>Buyer's Name</th>
+    <th>Buyer's Address</th>
+    <th>Buyer's Location ID</th>
+    <th>Supplier's Name</th>
+    <th>Supplier's Address</th>
+    <th>Supplier's Location ID</th>
+    <th>Status</th>
+
+    <th>Edit</th>
+    {% for proc in procure %}
+        <tr>
+            <td>{{proc.buyer_name}}</td>
+            <td>{{proc.buyer_address}}</td>
+            <td>{{proc.buyer_location_id}}</td>
+            <td>{{proc.supplier_name}}</td>
+            <td>{{proc.supplier_address}}</td>
+            <td>{{proc.supplier_location_id}}</td>
+            <td>{{proc.status}}</td>
+
+            <td><a href="{% url 'edit_procurement' proc.id %}">Edit</a></td>
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

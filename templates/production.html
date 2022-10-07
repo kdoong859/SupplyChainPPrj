@@ -1,0 +1,24 @@
+{% extends 'base_dashboard.html' %}
+
+{% block content%}
+<a style="float: right" href="{% url 'create_production' %}"><button>Add Production</button> </a>
+
+<table class="table">
+    <th>Order ID</th>
+    <th>Order Release Date</th>
+    <th>Material ID</th>
+    <th>Order Quantity</th>
+    <th>Edit</th>
+
+    {% for prod in product %}
+        <tr>
+            <td>{{prod.order_id}}</td>
+             <td>{{prod.order_release_date}}</td>
+            <td>{{prod.material_id}}</td>
+             <td>{{prod.order_quantity}}</td>
+            <td><a href="{% url 'edit_production' prod.id %}">Edit</a></td>
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
